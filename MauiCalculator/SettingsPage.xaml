@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCalculator.SettingsPage"
+             Title="Ayarlar">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <Label Text="Uygulama Teması" 
+               Style="{StaticResource SubHeaderStyle}" />
+
+        <Label Text="Kullanmak istediğiniz temayı seçin:" 
+               Style="{StaticResource BodyTextStyle}" />
+
+        <VerticalStackLayout Spacing="15" Padding="10,0,0,0">
+            <RadioButton x:Name="RadioLight"
+                         Content="Açık Tema"
+                         TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource TextPrimaryDark}}"
+                         CheckedChanged="OnThemeRadioButtonCheckedChanged" />
+
+            <RadioButton x:Name="RadioDark"
+                         Content="Koyu Tema"
+                         TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource TextPrimaryDark}}"
+                         CheckedChanged="OnThemeRadioButtonCheckedChanged" />
+
+            <RadioButton x:Name="RadioSystem"
+                         Content="Sistem ayarını kullan"
+                         TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource TextPrimaryDark}}"
+                         CheckedChanged="OnThemeRadioButtonCheckedChanged" />
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

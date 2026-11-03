@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Sabit Font Boyutları -->
+    <x:Double x:Key="DisplayResultFontSize">46</x:Double>
+    <x:Double x:Key="DisplayHistoryFontSize">16</x:Double>
+    <x:Double x:Key="ButtonFontSizeStandard">18</x:Double>
+    <x:Double x:Key="ButtonFontSizeScientific">13</x:Double>
+    <x:Double x:Key="SettingsTitleFontSize">22</x:Double>
+    <x:Double x:Key="SettingsSubFontSize">16</x:Double>
+
+    <!-- Sayfa Temel Stili -->
+    <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PageBackgroundLight}, Dark={StaticResource PageBackgroundDark}}" />
+    </Style>
+
+    <!-- 1. TEMEL BUTON STİLİ (Örtük stil ve diğerlerinin türetileceği ana stil) -->
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSizeStandard}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource OpBtnBgLight}, Dark={StaticResource OpBtnBgDark}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource OpBtnTextLight}, Dark={StaticResource OpBtnTextDark}}" />
+    </Style>
+
+    <!-- ÖRTÜK (IMPLICIT) STİL: x:Key verilmeden tüm butonlara atanır -->
+    <Style TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}" />
+
+    <!-- 2. AÇIK (EXPLICIT) STİLLER: BasedOn ile BaseButtonStyle'dan türetilir -->
+
+    <!-- Rakam Butonları Stili -->
+    <Style x:Key="NumberButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource NumBtnBgLight}, Dark={StaticResource NumBtnBgDark}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource NumBtnTextLight}, Dark={StaticResource NumBtnTextDark}}" />
+    </Style>
+
+    <!-- İşlem / Operatör Butonları Stili -->
+    <Style x:Key="OperatorButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource OpBtnBgLight}, Dark={StaticResource OpBtnBgDark}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource OpBtnTextLight}, Dark={StaticResource OpBtnTextDark}}" />
+    </Style>
+
+    <!-- Eşittir (=) Butonu Stili -->
+    <Style x:Key="EqualButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource EqualBtnBgLight}, Dark={StaticResource EqualBtnBgDark}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource EqualBtnTextLight}, Dark={StaticResource EqualBtnTextDark}}" />
+    </Style>
+
+    <!-- Bilimsel Mod Butonları Stili -->
+    <Style x:Key="ScientificButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSizeScientific}" />
+    </Style>
+
+    <!-- Ekran Sonuç Metni Stili -->
+    <Style x:Key="DisplayResultStyle" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="End" />
+        <Setter Property="VerticalTextAlignment" Value="End" />
+        <Setter Property="FontSize" Value="{StaticResource DisplayResultFontSize}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextPrimaryLight}, Dark={StaticResource TextPrimaryDark}}" />
+    </Style>
+
+    <!-- Ekran Üst Geçmiş Metni Stili -->
+    <Style x:Key="DisplayHistoryStyle" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="End" />
+        <Setter Property="VerticalTextAlignment" Value="End" />
+        <Setter Property="FontSize" Value="{StaticResource DisplayHistoryFontSize}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextSecondaryLight}, Dark={StaticResource TextSecondaryDark}}" />
+    </Style>
+    <!-- Shell Menü Elemanlarının Yazı Rengi -->
+    <Style TargetType="FlyoutItem">
+        <Setter Property="Shell.ForegroundColor" 
+                Value="{AppThemeBinding Light=#1F1F1F, Dark=#FFFFFF}" />
+        <Setter Property="Shell.BackgroundColor" 
+                Value="{AppThemeBinding Light=#F3F3F3, Dark=#202020}" />
+    </Style>
+
+</ResourceDictionary>

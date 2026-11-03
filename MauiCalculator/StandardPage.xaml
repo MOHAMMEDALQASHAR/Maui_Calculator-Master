@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCalculator.StandardPage"
+             Title="Standart">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *, *, *, *, *, *" 
+          ColumnDefinitions="*, *, *, *" 
+          Padding="10">
+
+        <!-- Üst Geçmiş / Ara İşlem Göstergesi -->
+        <Label x:Name="HistoryLabel" 
+               Grid.Row="0" Grid.ColumnSpan="4" 
+               Style="{StaticResource DisplayHistoryStyle}" 
+               Text="" />
+
+        <!-- Ana Sonuç Ekranı -->
+        <Label x:Name="DisplayLabel" 
+               Grid.Row="1" Grid.ColumnSpan="4" 
+               Style="{StaticResource DisplayResultStyle}" 
+               Text="0" />
+
+        <!-- Hafıza Satırı: MC, MR, M+, M-, MS, Mv -->
+        <Grid Grid.Row="2" Grid.ColumnSpan="4" ColumnDefinitions="*, *, *, *, *, *">
+            <Button Grid.Column="0" Text="MC" Clicked="OnMemoryClicked" Style="{StaticResource OperatorButtonStyle}" />
+            <Button Grid.Column="1" Text="MR" Clicked="OnMemoryClicked" Style="{StaticResource OperatorButtonStyle}" />
+            <Button Grid.Column="2" Text="M+" Clicked="OnMemoryClicked" Style="{StaticResource OperatorButtonStyle}" />
+            <Button Grid.Column="3" Text="M-" Clicked="OnMemoryClicked" Style="{StaticResource OperatorButtonStyle}" />
+            <Button Grid.Column="4" Text="MS" Clicked="OnMemoryClicked" Style="{StaticResource OperatorButtonStyle}" />
+            <Button Grid.Column="5" Text="M▾" Clicked="OnMemoryClicked" Style="{StaticResource OperatorButtonStyle}" />
+        </Grid>
+
+        <!-- Satır 3: %, CE, C, Silme (Backspace) -->
+        <Button Grid.Row="3" Grid.Column="0" Text="%" Clicked="OnSpecialOpClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="3" Grid.Column="1" Text="CE" Clicked="OnClearEntryClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="3" Grid.Column="2" Text="C" Clicked="OnClearClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="3" Grid.Column="3" Text="⌫" Clicked="OnBackspaceClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <!-- Satır 4: 1/x, x², √x, Bölme (÷) -->
+        <Button Grid.Row="4" Grid.Column="0" Text="1/x" Clicked="OnSpecialOpClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="1" Text="x²" Clicked="OnSpecialOpClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="2" Text="√x" Clicked="OnSpecialOpClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="3" Text="÷" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <!-- Satır 5: 7, 8, 9, Çarpma (×) -->
+        <Button Grid.Row="5" Grid.Column="0" Text="7" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="1" Text="8" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="2" Text="9" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="3" Text="×" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <!-- Satır 6: 4, 5, 6, Çıkarma (-) -->
+        <Button Grid.Row="6" Grid.Column="0" Text="4" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="1" Text="5" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="2" Text="6" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="3" Text="-" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <!-- Satır 7: 1, 2, 3, Toplama (+) -->
+        <Button Grid.Row="7" Grid.Column="0" Text="1" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="1" Text="2" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="2" Text="3" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="3" Text="+" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <!-- Satır 8: +/-, 0, Virgül (,), Eşittir (=) -->
+        <Button Grid.Row="8" Grid.Column="0" Text="+/-" Clicked="OnNegateClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="1" Text="0" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="2" Text="," Clicked="OnDecimalClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="3" Text="=" Clicked="OnEqualClicked" Style="{StaticResource EqualButtonStyle}" />
+
+    </Grid>
+</ContentPage>
